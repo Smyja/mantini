@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
-import {NavLink} from 'react';
+import {NavLink} from 'creact-router-dom';
 import { AppShell, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme,List} from '@mantine/core';
 
 const Layout = () => {
