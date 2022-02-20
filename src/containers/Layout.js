@@ -142,7 +142,7 @@ const Layout = () => {
               <Text  className={classes.header}>Application header</Text>
               <Group direction="row" spacing="20" position="right" style={{marginLeft:"auto"}}><List style={{display:"flex",gap: "30px",
 margin:"30px",listStyle: "none"}}><List.Item>Joe</List.Item><List.Item>Joe</List.Item><List.Item>Joe</List.Item></List></Group>
-              <Text>Application header</Text>
+         
             </div>
           </Header>
         }
