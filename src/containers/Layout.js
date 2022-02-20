@@ -33,6 +33,8 @@ const useStyles = createStyles(() => ({
   }
   }
 }))
+
+
 const Layout = () => {
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
@@ -47,8 +49,9 @@ const Layout = () => {
         fixed
         navbar={
           
-          <Navbar
+  
            
+          <Navbar
             padding="md"
             // Breakpoint at which navbar will be hidden if hidden prop is true
             hiddenBreakpoint="sm"
@@ -139,6 +142,7 @@ const Layout = () => {
               <Text  className={classes.header}>Application header</Text>
               <Group direction="row" spacing="20" position="right" style={{marginLeft:"auto"}}><List style={{display:"flex",gap: "30px",
 margin:"30px",listStyle: "none"}}><List.Item>Joe</List.Item><List.Item>Joe</List.Item><List.Item>Joe</List.Item></List></Group>
+              <Text>Application header</Text>
             </div>
           </Header>
         }
