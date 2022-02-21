@@ -25,13 +25,14 @@ const useStyles = createStyles(() => ({
       backgroundColor: "blue",
       left:"260px",
       position:"relative"
-    },
-    navvbar:{
+    }
+  },
+  navvbar:{
       '@media (min-width: 800px)': {
-        backgroundColor: "green"
+      top:"0px"
     }
   }
-  }
+  
 }))
 
 
@@ -61,7 +62,7 @@ const Layout = () => {
             // viewport size > theme.breakpoints.sm – width is 300px
             // viewport size > theme.breakpoints.lg – width is 400px
             width={{ sm: 300, lg: 260 }}
-            classNames={classes.navvbar}
+            className={classes.navvbar}
             
           >
             <List
