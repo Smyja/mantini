@@ -140,7 +140,7 @@ const Layout = () => {
                   mr="xl"
                 />
               </MediaQuery>
-              <Text  className={classes.header}>Application header</Text>
+              <Text  className={classes.header} weight={400} color="#63BA86">Available Hospitals</Text>
               <Group direction="row" spacing="20" position="right" style={{marginLeft:"auto"}}><List style={{display:"flex",gap: "30px",
 margin:"30px",listStyle: "none"}}><List.Item>Joe</List.Item><List.Item>Joe</List.Item><List.Item>Joe</List.Item></List></Group>
          
