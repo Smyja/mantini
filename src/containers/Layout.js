@@ -1,6 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import {
+  GearIcon,
+  ChatBubbleIcon,
+  ImageIcon,
+  MagnifyingGlassIcon,
+  TrashIcon,
+  PinRightIcon,
+} from "@radix-ui/react-icons";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import About from "../components/About";
 import Home from "../components/Home";
@@ -15,26 +23,28 @@ import {
   Text,
   useMantineTheme,
   List,
-  createStyles ,
+  createStyles,
   Group,
+  Avatar,
+  Menu,
+  TextInput,
+  Divider,
 } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
-  header:{
-    '@media (min-width: 800px)': {
-      backgroundColor: "blue",
-      left:"260px",
-      position:"relative"
-    }
+  header: {
+    "@media (min-width: 800px)": {
+      left: "260px",
+      position: "relative",
+    },
   },
-  navvbar:{
-      '@media (min-width: 800px)': {
-      top:"0px"
-    }
-  }
-  
-}))
-
+  navvbar: {
+    "@media (min-width: 800px)": {
+      top: "0px",
+      backgroundColor: "#63BA86",
+    },
+  },
+}));
 
 const Layout = () => {
   const [opened, setOpened] = useState(false);
@@ -49,9 +59,6 @@ const Layout = () => {
         // fixed prop on AppShell will be automatically added to Header and Navbar
         fixed
         navbar={
-          
-  
-           
           <Navbar
             padding="md"
             // Breakpoint at which navbar will be hidden if hidden prop is true
@@ -61,9 +68,8 @@ const Layout = () => {
             // when viewport size is less than theme.breakpoints.sm navbar width is 100%
             // viewport size > theme.breakpoints.sm – width is 300px
             // viewport size > theme.breakpoints.lg – width is 400px
-            width={{ sm: 300, lg: 260 }}
+            width={{ sm: 300, lg: 220 }}
             className={classes.navvbar}
-            
           >
             <List
               spacing="xs"
@@ -72,22 +78,24 @@ const Layout = () => {
               icon={
                 <Icon
                   icon="codicon:home"
-                  color="#918e9b"
-                  height="30"
+                  color="white"
+                  height="25"
                   rotate={2}
                   hFlip={true}
                   vFlip={true}
                 />
               }
             >
-  
               <List.Item
                 component={NavLink}
                 style={({ isActive }) => {
                   return {
                     display: "block",
                     margin: "1rem 0",
-                    backgroundColor: isActive ? "red" : "",
+                    borderRadius: "5px",
+                    color: "white",
+                    backgroundColor: isActive ? "#8BC2A1" : "",
+                    fontWeight: isActive ? "900" : "",
                   };
                 }}
                 to="/"
@@ -100,7 +108,10 @@ const Layout = () => {
                   return {
                     display: "block",
                     margin: "1rem 0",
-                    backgroundColor: isActive ? "red" : "",
+                    borderRadius: "5px",
+                    color: "white",
+                    backgroundColor: isActive ? "#8BC2A1" : "",
+                    fontWeight: isActive ? "900" : "",
                   };
                 }}
                 to="/about"
@@ -113,15 +124,16 @@ const Layout = () => {
                   return {
                     display: "block",
                     margin: "1rem 0",
-                    backgroundColor: isActive ? "red" : "",
+                    borderRadius: "5px",
+                    color: "white",
+                    backgroundColor: isActive ? "#8BC2A1" : "",
+                    fontWeight: isActive ? "900" : "",
                   };
                 }}
                 to="/contact"
               >
                 mmand
               </List.Item>
-  
-    
             </List>
           </Navbar>
         }
@@ -140,10 +152,74 @@ const Layout = () => {
                   mr="xl"
                 />
               </MediaQuery>
-              <Text  className={classes.header} weight={400} color="#63BA86">Available Hospitals</Text>
-              <Group direction="row" spacing="20" position="right" style={{marginLeft:"auto"}}><List style={{display:"flex",gap: "30px",
-margin:"30px",listStyle: "none"}}><List.Item>Joe</List.Item><List.Item>Joe</List.Item><List.Item>Joe</List.Item></List></Group>
-         
+              <Text className={classes.header} weight={400} color="#63BA86">
+                Available Hospitals
+              </Text>
+              <Group
+                direction="row"
+                spacing="20"
+                position="right"
+                style={{ marginLeft: "auto" }}
+              >
+                <List
+                  style={{
+                    display: "flex",
+                    gap: "30px",
+                    margin: "30px",
+                    listStyle: "none",
+                  }}
+                >
+                  <List.Item>
+                    <TextInput
+                      placeholder="Search"
+                      icon={
+                        <Icon
+                          icon="carbon:search"
+                          color="#918e9b"
+                          height="20"
+                          rotate={2}
+                          hFlip={true}
+                          vFlip={true}
+                        />
+                      }
+                    />
+                  </List.Item>
+                  <List.Item>
+                    <Menu
+                      trigger="hover"
+                      control={
+                        <Avatar color="cyan" radius="xl">
+                          IR
+                        </Avatar>
+                      }
+                    >
+                      <Menu.Label>Application</Menu.Label>
+                      <Menu.Item icon={<GearIcon />}>Settings</Menu.Item>
+                      <Menu.Item icon={<ChatBubbleIcon />}>Messages</Menu.Item>
+                      <Menu.Item icon={<ImageIcon />}>Gallery</Menu.Item>
+                      <Menu.Item
+                        icon={<MagnifyingGlassIcon />}
+                        rightSection={
+                          <Text size="xs" color="dimmed">
+                            ⌘K
+                          </Text>
+                        }
+                      >
+                        Search
+                      </Menu.Item>
+                      <Divider />
+                      <Menu.Label>Danger zone</Menu.Label>
+                      <Menu.Item icon={<PinRightIcon />}>
+                        Transfer my data
+                      </Menu.Item>
+                      ,
+                      <Menu.Item color="red" icon={<TrashIcon />}>
+                        Delete my account
+                      </Menu.Item>
+                    </Menu>
+                  </List.Item>
+                </List>
+              </Group>
             </div>
           </Header>
         }
