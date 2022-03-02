@@ -70,6 +70,7 @@ const Layout = () => {
             // viewport size > theme.breakpoints.lg – width is 400px
             width={{ sm: 300, lg: 220 }}
             className={classes.navvbar}
+            style={{backgroundColor:"#63BA86"}}
           >
             <List
               spacing="xs"
